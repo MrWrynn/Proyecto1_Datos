@@ -1,3 +1,4 @@
+package Proyecto1;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,7 @@ public class Dado {
     Random generador=new Random();
     int moverse;
 
+
     public Dado(Ventana ventana, LinkedList tablero){
         ventana.add(dado);
         
@@ -18,14 +20,10 @@ public class Dado {
             @Override
         public void actionPerformed(ActionEvent e) {
             int i=1;
-            moverse=generador.nextInt(3)+1;
+            moverse=generador.nextInt(4)+1;
             JOptionPane.showMessageDialog(null,"Avanza: "+moverse+" casillas");
-            System.out.println("hola");
-            while(i<=moverse){
-                i++;
-              
-
-            }
+            tablero.recorrerDado(moverse);
+            
         }};
 
         dado.addActionListener(oyente);
