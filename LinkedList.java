@@ -60,11 +60,11 @@ public class LinkedList {
         }
     }
 
-    public void recorrerDado() {
+    public void recorrerDado(int moverse) {
         int trampa=3;
         int tunel=4;
         int reto=2;
-        int dado=3;
+        int dado=moverse;
         int lim=dado+1;
         int i=1;
         Node runner=this.cabeza;
