@@ -1,6 +1,7 @@
 public class LinkedList {
     private Node cabeza;
     private Node ultimo;
+    public Node runner;
     private int size;
 
     public LinkedList() {
@@ -24,6 +25,7 @@ public class LinkedList {
             this.cabeza.siguiente=null; //El siguiente elemento de la cabeza está vacío
             this.cabeza.anterior=null; //El anterior elemento de la cabeza también está vacío
             this.ultimo=this.cabeza; //El ultimo elemento de la lista es la cabeza
+            this.runner=this.cabeza;
             this.size++; //Aumenta el tamaño de la lista
         }else { //Si la cabeza no está vacía:
             this.ultimo.siguiente=newNode; //El siguiente elemento del ultimo es el nuevo nodo
@@ -67,7 +69,6 @@ public class LinkedList {
         int dado=moverse;
         int lim=dado+1;
         int i=1;
-        Node runner=this.cabeza;
         while (runner !=null && i<lim){
             System.out.println(runner.getData());
             runner=runner.siguiente;
