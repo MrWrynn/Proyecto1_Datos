@@ -23,6 +23,10 @@ public class Dado {
             moverse=generador.nextInt(4)+1;
             JOptionPane.showMessageDialog(null,"Avanza: "+moverse+" casillas");
             tablero.recorrerDado(moverse);
+            System.out.println(tablero.runner.getData());
+            tablero.runner=tablero.runner.anterior;
+            System.out.println("*"+tablero.runner.getData());
+            }
             
         }};
 
