@@ -6,10 +6,19 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Jugador{
+public class Jugador extends JFrame{
+    public static void main 
 
     public static void main(String[] args) {
+        ventanaJugador ventana = new ventanaJugador();
+        ventana.setDefaultCloseOperations(JFrame.EXIT_ON_CLOSE); //al cerrar la ventana no siga ejecutandose el programa
+
+        Jugador ventana = new Jugador();
+
 
         //Host del servidor
         String HOST = "Localhost";
@@ -47,4 +56,4 @@ public class Jugador{
 }
 
     
-}
+
