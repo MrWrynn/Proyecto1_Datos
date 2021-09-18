@@ -27,29 +27,29 @@ public class Servidor {
             //Siempre estara escuchando peticiones
             while (true) {
 
-                //Espero a que un cliente se conecte
-                System.out.println("Esperando clientes...");
+                //Espera a que un jugador se conecte
+                System.out.println("Esperando jugadores...");
                 
                 socket = servidor.accept();
 
-                System.out.println("Cliente conectado");
+                System.out.println("Jugador conectado");
                 input = new DataInputStream(socket.getInputStream());
                 output = new DataOutputStream(socket.getOutputStream());
 
-                //Leo el mensaje que me envia
+                //Lee el mensaje que le envia el jugador
                 String mensaje = input.readUTF();
 
                 System.out.println(mensaje);
 
                 //Le envio un mensaje
                 Scanner keyboard = new Scanner(System.in);
-                String MensajeParaCliente = keyboard.nextLine();
-                output.writeUTF(MensajeParaCliente);
+                String MensajeParaJugador = keyboard.nextLine();
+                output.writeUTF(MensajeParaJugador);
 
                 //Cierro el socket
                 socket.close();
                 keyboard.close();
-                System.out.println("Cliente desconectado");
+                System.out.println("Jugador abandono la partida");
 
             }
 
