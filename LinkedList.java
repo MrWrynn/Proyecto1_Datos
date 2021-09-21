@@ -1,3 +1,5 @@
+package Proyecto1;
+
 public class LinkedList {
     private Node cabeza;
     private Node ultimo;
@@ -63,9 +65,6 @@ public class LinkedList {
     }
 
     public void recorrerDado(int moverse) {
-        int trampa=3;
-        int tunel=4;
-        int reto=2;
         int dado=moverse;
         int lim=dado+1;
         int i=1;
@@ -75,20 +74,7 @@ public class LinkedList {
             i++;
             
         }
-        int runnerA = (int) runner.getData();
-        while (runner!=null && i==lim){
-            if (runnerA==trampa){
-                runner=runner.anterior;
-                runner=runner.anterior;
-                runner=runner.anterior;
-            } else if(runnerA==tunel){
-                runner=runner.siguiente;
-                runner=runner.siguiente;
-                runner=runner.siguiente;
-            }
+
         
-
-        }
     }
-
 }
