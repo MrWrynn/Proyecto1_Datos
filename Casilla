@@ -18,8 +18,6 @@ public class Casilla {
         casilla.setOpaque(true);
         casilla.setBackground(Color.GRAY);
         ventana.add(casilla);
-
-        
+       
     }
-
 }
