@@ -2,6 +2,6 @@
 ***
 ## Integrantes:
 - Cristopher Eduardo Moreira Quirós
-#### Jose Eduardo Cruz Vargas
-#### Meibel Ceciliano Picado
+- Jose Eduardo Cruz Vargas
+- Meibel Ceciliano Picado
 ***
