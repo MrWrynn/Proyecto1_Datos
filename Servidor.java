@@ -85,4 +85,3 @@ class Lamina2 extends JPanel implements Runnable{
     }
 
 }
-                
