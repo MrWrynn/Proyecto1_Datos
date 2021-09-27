@@ -1,0 +1,1 @@
+Contiene imagenes
