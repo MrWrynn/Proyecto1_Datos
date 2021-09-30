@@ -48,7 +48,8 @@ class ventanaInicio extends JFrame{ //La clase hereda de JFrame para poder crear
         ServerSocket servidor = null;
         Socket socket = null;
         DataInputStream input;
-        DataOutputStream output;
+        DataOutputStream output; 
+       
         
         //PORT del servidor
         int PORT = 8888;
@@ -72,8 +73,15 @@ class ventanaInicio extends JFrame{ //La clase hereda de JFrame para poder crear
                 System.out.println(mensaje);
                 //lamina1.datos.setText(mensaje);
                 JOptionPane.showMessageDialog( lamina1 , "Jugador: "+ mensaje + " está conectado");
+
+                //Abre el tablero cuando se conecta el jugador 2
+                Ventana ventana=new Ventana();
+               LinkedList lista=new LinkedList();
+               Dado dado =new Dado(ventana,lista);
+               creartablero tablero =new creartablero(ventana, lista);
+        ventana.setVisible(true);
                 
-            
+               
 
                 //Cierro el socket
                 socket.close();
@@ -92,6 +100,7 @@ class ventanaInicio extends JFrame{ //La clase hereda de JFrame para poder crear
 class Lamina1 extends JPanel implements Runnable{
 
     JLabel datos = new JLabel("Esperando jugadores..."); // instancia para agregar una etiqueta de texto
+    
     
     public Lamina1(){ //constructor
     
