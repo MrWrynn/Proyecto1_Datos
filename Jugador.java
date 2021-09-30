@@ -5,6 +5,12 @@ import javax.swing.*;  //importar interfaz grafica
 
 import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 
+package Proyecto1;
+
+import javax.swing.*;  //importar interfaz grafica 
+
+import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
@@ -19,6 +25,7 @@ import java.util.logging.Logger;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 import java.net.*; 
 
 
@@ -51,6 +58,7 @@ class Lamina extends JPanel implements Runnable{
     JButton boton1 = new JButton("Conectar"); // instancia para crear un boton 
     
     
+    
     JTextField nombre1 = new JTextField(10); //Nos abre un campo para agregar texto
     public Lamina(){ //constructor
         
@@ -60,17 +68,25 @@ class Lamina extends JPanel implements Runnable{
         
         GetText click = new GetText(); //instancia que servira para obtener el texto al presionar el boton
         boton1.addActionListener(click);
+
+
         add(boton1); //se añade el boton a la lamina 
+
+        
+        
     }
 
     public  class GetText implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-
                EnviarMensaje(nombre1.getText());
+               Ventana ventana=new Ventana();
+               LinkedList lista=new LinkedList();
+               Dado dado =new Dado(ventana,lista);
+               creartablero tablero =new creartablero(ventana, lista);
+        ventana.setVisible(true);
             
     }
-
 
 
     public void EnviarMensaje(String message){
