@@ -1,4 +1,4 @@
-package Proyecto1;
+package Proyecto1.Proyecto1;
 import java.util.Random;
 
 public class creartablero {
@@ -22,25 +22,44 @@ public class creartablero {
             if ((opcion==0) && (r<=7)){
                 tablero.insertNode(0);
                 cr.crear(ventana);
-                arreglo[i+1]=0;
+                arreglo[i]=0;
                 i++;
                 r++;
             }
             else if ((opcion==1) && (tr<=3)){
                 tablero.insertNode(1);
                 tp.crear(ventana);
-                arreglo[i+1]=1;
+                arreglo[i]=1;
                 i++;
                 tr++;
             }
             else if ((opcion==2) && (tu<=4)){
                 tablero.insertNode(2);
                 tn.crear(ventana);
-                arreglo[i+1]=2;
+                arreglo[i]=2;
                 i++;
                 tu++;}}
         inicio.crear(ventana);
         tablero.insertNode(3);
-        arreglo[15]=3;}
-   
+        arreglo[15]=3;
+    }
+    public creartablero(Ventana ventana,LinkedList tablero,int[]arreglo){
+        for (int i:arreglo){
+            switch(i){
+                case 0:tablero.insertNode(0);
+                        cr.crear(ventana);
+                        break;
+                case 1:tablero.insertNode(1);
+                        tp.crear(ventana);
+                        break;
+                case 2:tablero.insertNode(2);
+                        tn.crear(ventana);
+                        break;
+                case 3:tablero.insertNode(3);
+                        inicio.crear(ventana);
+            }
+        }
+    }
+
+
 }
