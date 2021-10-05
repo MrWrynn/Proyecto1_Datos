@@ -23,12 +23,12 @@ public class PantallaInicio {
 }
 
 class ventanaInicio extends JFrame { //La clase hereda de JFrame para poder crear cuadros(ventanas)
-
+    int posicion =0;
 
     public ventanaInicio(Communication server) { //Constructor
         JButton dado = new JButton("Dado");
-        int posicion =0;
         Random generador=new Random(); 
+
         System.out.println("PantalaInicio");
         setBounds(500, 200, 400, 300);
         setResizable(false); //evitar que la ventana se redimencione
@@ -46,11 +46,13 @@ class ventanaInicio extends JFrame { //La clase hereda de JFrame para poder crea
         Ventana ventana = new Ventana();
         LinkedList lista = new LinkedList();
         creartablero tablero = new creartablero(ventana, lista);
+
         ventana.setTitle("Host");
         ventana.setVisible(true);
         ventana.add(dado);
 
         server.EnviarMensaje(lista.printList(), 7777);
+        JButton boton [] = tablero.botones;
         dado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -61,6 +63,8 @@ class ventanaInicio extends JFrame { //La clase hereda de JFrame para poder crea
                     int moverse=generador.nextInt(4)+1;
                     JOptionPane.showMessageDialog(null,"Avanza: "+moverse+" casillas");
                     lista.recorrerDado(moverse);
+                    boton[posicion].setText("");
+                    posicion=posicion+moverse;
                     System.out.println(lista.runner.getData());
                     int runnerA = (int) lista.runner.getData();
                     int movimiento=generador.nextInt(3)+1;
@@ -68,22 +72,26 @@ class ventanaInicio extends JFrame { //La clase hereda de JFrame para poder crea
                         System.out.println("Mov: "+movimiento);
                         if (runnerA==1){
                             JOptionPane.showMessageDialog(null, "Has caído en una trampa, retrocedes "+movimiento+" casillas");
-                        } else {
+                        } else if (runnerA==2) {
                             JOptionPane.showMessageDialog(null, "Has caído en un tunel, avanzas "+movimiento+" casillas");
                         }
-                        while (runnerA==1 && num<=movimiento){
+                        while (runnerA==1 && num<=movimiento && posicion>0){
                             lista.runner=lista.runner.anterior;
+                            posicion--;
                             num++;
                         } while (runnerA==2 && num<=movimiento){
                             lista.runner=lista.runner.siguiente;
+                            posicion++;
                             num++;
                         }
                         if (runnerA==0){
                             //reto.reto();   //se debe enviar al otro jugador
                             lista.runner=lista.runner.siguiente;
+                            posicion++;
                         }
                         n++;
                     }
+                    boton[posicion].setText("X");
                     System.out.println("*"+lista.runner.getData());
                 }catch(java.lang.NullPointerException ex){JOptionPane.showMessageDialog(null, "Has ganado");}
             }
