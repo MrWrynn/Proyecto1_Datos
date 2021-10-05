@@ -1,4 +1,4 @@
-package Proyecto1.Proyecto1;
+package Proyecto1;
 import java.util.Random;
 import javax.swing.JButton;
 import java.awt.Color;
