@@ -168,7 +168,7 @@ public class Ventana1 extends javax.swing.JFrame implements Observer { //Al obse
     public void update(Observable o, Object arg) { 
         System.out.println(arg);
         String mensaje=String.valueOf(arg);
-        if (mensaje=="false"){
+        if (mensaje=="false" && posicion!=0){
             System.out.println("Funcionó");
             System.out.println("La posición es: "+posicion);
             botones[posicion].setText("");
